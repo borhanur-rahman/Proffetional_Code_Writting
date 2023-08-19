@@ -5,14 +5,9 @@ public class StudentList
 {
 	public static void main(String[] args)
 	{
-		int argSize=0;
 
-		for(String arg:args)
-		{
-			argSize++;
-		}
 		//		Check arguments
-		if(argSize!=1)
+		if(args.length!=1)
 		{
 			System.out.println( Constant.INVALID);
 		}
@@ -47,10 +42,10 @@ public class StudentList
 						new InputStreamReader(
 								new FileInputStream(Constant.FILENAME)));
 				String line = bufferedReader.readLine();
-				System.out.println(line);
+				//System.out.println(line);
 				String names[] = line.split(",");
 				Random random = new Random();
-				int index = random.nextInt();
+				int index = random.nextInt(names.length);
 				System.out.println(names[index]);
 				bufferedReader.close();
 			}
@@ -90,17 +85,16 @@ public class StudentList
 				BufferedReader bufferedReader = new BufferedReader(
 						new InputStreamReader(
 								new FileInputStream(Constant.FILENAME)));
+				String studentName=args[0].substring(1);
 				String line = bufferedReader.readLine();
-				String names[] = line.split(",");
-				boolean done = false;
-				String name = args[0].substring(1);
-				for(int index = 0; index<names.length && !done; index++)
+				int index=line.indexOf(studentName);
+				if(index==-1)
 				{
-					if(names[index].equals(name))
-					{
-						System.out.println("We found it!");
-						done=true;
-					}
+					System.out.println("Not Found");
+				}
+				else
+				{
+					System.out.println("We Found it");
 				}
 				bufferedReader.close();
 			}
@@ -119,25 +113,11 @@ public class StudentList
 						new InputStreamReader(
 								new FileInputStream(Constant.FILENAME)));
 				String line = bufferedReader.readLine();
-				char charArray[] = line.toCharArray();
-				boolean in_word = false;
-				int count=0;
-				for(char character:charArray)
-				{
-					if(character ==' ')
-					{
-						if (!in_word)
-						{
-							count++;
-							in_word =true;
-						}
-						else
-						{
-							in_word=false;
-						}
-					}
-				}
-				System.out.println(count +" word(s) found " + charArray.length);
+				String names[] = line.split(",");
+
+
+
+				System.out.println(names.length +" word(s) found ");
 				bufferedReader.close();
 			}
 			catch (Exception e)

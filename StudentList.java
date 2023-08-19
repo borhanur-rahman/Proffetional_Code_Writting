@@ -30,6 +30,7 @@ public class StudentList
 				{
 					System.out.println(name);
 				}
+				bufferedReader.close();
 			}
 			catch (Exception e)
 			{
@@ -51,6 +52,7 @@ public class StudentList
 				Random random = new Random();
 				int index = random.nextInt();
 				System.out.println(names[index]);
+				bufferedReader.close();
 			}
 			catch (Exception e)
 			{
@@ -100,6 +102,7 @@ public class StudentList
 						done=true;
 					}
 				}
+				bufferedReader.close();
 			}
 			catch (Exception e)
 			{
@@ -135,6 +138,7 @@ public class StudentList
 					}
 				}
 				System.out.println(count +" word(s) found " + charArray.length);
+				bufferedReader.close();
 			}
 			catch (Exception e)
 			{

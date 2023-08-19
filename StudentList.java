@@ -14,16 +14,16 @@ public class StudentList
 		//		Check arguments
 		if(argSize!=1)
 		{
-			System.out.println("Invalid Input");
+			System.out.println( Constant.INVALID);
 		}
 		else if(args[0].equals("a"))
 		{
-			System.out.println("Loading data ...");
+			System.out.println(Constant.LOAD);
 			try
 			{
 				BufferedReader bufferedReader = new BufferedReader(
 						new InputStreamReader(
-								new FileInputStream("students.txt")));
+								new FileInputStream(Constant.FILENAME)));
 				String line = bufferedReader.readLine();
 				String names[] = line.split(",");
 				for(String name : names)
@@ -36,16 +36,16 @@ public class StudentList
 			{
 
 			}
-			System.out.println("Data Loaded.");
+			System.out.println(Constant.LOADED);
 		}
 		else if(args[0].equals("r"))
 		{
-			System.out.println("Loading data ...");
+			System.out.println(Constant.LOAD);
 			try
 			{
 				BufferedReader bufferedReader = new BufferedReader(
 						new InputStreamReader(
-								new FileInputStream("students.txt")));
+								new FileInputStream(Constant.FILENAME)));
 				String line = bufferedReader.readLine();
 				System.out.println(line);
 				String names[] = line.split(",");
@@ -58,18 +58,18 @@ public class StudentList
 			{
 
 			}
-			System.out.println("Data Loaded.");
+			System.out.println(Constant.LOADED);
 		}
 		else if(args[0].contains("+"))
 		{
-			System.out.println("Loading data ...");
+			System.out.println(Constant.LOAD);
 			try
 			{
 				BufferedWriter bufferedWriter = new BufferedWriter(
-						new FileWriter("students.txt", true));
+						new FileWriter(Constant.FILENAME, true));
 				String name = args[0].substring(1);
 				Date date = new Date();
-				String dateformate = "dd/mm/yyyy-hh:mm:ss a";
+				String dateformate = Constant.DATEFORMATE;
 				DateFormat dateFormat = new SimpleDateFormat(dateformate);
 				String formatDate= dateFormat.format(date);
 				bufferedWriter.write(", "+name+"\nList last updated on "+formatDate);
@@ -80,16 +80,16 @@ public class StudentList
 
 			}
 
-			System.out.println("Data Loaded.");
+			System.out.println(Constant.LOADED);
 		}
 		else if(args[0].contains("?"))
 		{
-			System.out.println("Loading data ...");
+			System.out.println(Constant.LOAD);
 			try
 			{
 				BufferedReader bufferedReader = new BufferedReader(
 						new InputStreamReader(
-								new FileInputStream("students.txt")));
+								new FileInputStream(Constant.FILENAME)));
 				String line = bufferedReader.readLine();
 				String names[] = line.split(",");
 				boolean done = false;
@@ -108,16 +108,16 @@ public class StudentList
 			{
 
 			}
-			System.out.println("Data Loaded.");
+			System.out.println(Constant.LOADED);
 		}
 		else if(args[0].contains("c"))
 		{
-			System.out.println("Loading data ...");
+			System.out.println(Constant.LOAD);
 			try
 			{
 				BufferedReader bufferedReader = new BufferedReader(
 						new InputStreamReader(
-								new FileInputStream("students.txt")));
+								new FileInputStream(Constant.FILENAME)));
 				String line = bufferedReader.readLine();
 				char charArray[] = line.toCharArray();
 				boolean in_word = false;
@@ -144,11 +144,11 @@ public class StudentList
 			{
 
 			}
-			System.out.println("Data Loaded.");
+			System.out.println(Constant.LOADED);
 		}
 		else
 		{
-			System.out.println("Invalid Input.");
+			System.out.println( Constant.INVALID);
 		}
 	}
 }

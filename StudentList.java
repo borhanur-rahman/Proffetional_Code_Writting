@@ -5,9 +5,18 @@ public class StudentList
 {
 	public static void main(String[] args)
 	{
+		int argSize=0;
 
-//		Check arguments
-		if(args[0].equals("a"))
+		for(String arg:args)
+		{
+			argSize++;
+		}
+		//		Check arguments
+		if(argSize!=1)
+		{
+			System.out.println("Invalid Input");
+		}
+		else if(args[0].equals("a"))
 		{
 			System.out.println("Loading data ...");
 			try
@@ -132,6 +141,10 @@ public class StudentList
 
 			}
 			System.out.println("Data Loaded.");
+		}
+		else
+		{
+			System.out.println("Invalid Input.");
 		}
 	}
 }
